@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Roses.App.Controllers;
 using Roses.App.Entities;
 using Roses.App.Utilities;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Roses.App
 {
@@ -12,18 +15,18 @@ namespace Roses.App
         public static void Main()
         {
             Console.WriteLine("OMGHAI!");
+            
 
-            var items = BuildItemsDataSet();
+            var appConfiguration = BuildItemsDataSet();
 
             var categoryClassifier = new ItemCategoryClassifier();
 
-            var app = new MainController(items, categoryClassifier);
-
-
-            for (var i = 0; i < 31; i++)
+            var app = new MainController(appConfiguration.Items, categoryClassifier);
+            
+            for (var i = 0; i < appConfiguration.DaysToUpdate; i++)
             {
                 Console.WriteLine($"-------- day {i} --------");
-                DisplayItemsStatus(items);
+                DisplayItemsStatus(appConfiguration.Items);
                 app.UpdateDailyItemState();
             }
         }
@@ -39,66 +42,12 @@ namespace Roses.App
             Console.WriteLine("");
         }
 
-        private static List<Item> BuildItemsDataSet()
+        private static AppConfiguration BuildItemsDataSet()
         {
-            var items = new List<Item>
-            {
-                new()
-                {
-                    Name = ItemNames.DexterityVest,
-                    SellIn = 10,
-                    Quality = 20
-                },
-                new()
-                {
-                    Name = ItemNames.AgedBrie,
-                    SellIn = 2,
-                    Quality = 0
-                },
-                new()
-                {
-                    Name = ItemNames.ElixirOfTheMongoose,
-                    SellIn = 5,
-                    Quality = 7
-                },
-                new()
-                {
-                    Name = ItemNames.SulfurasHandOfRagnaros,
-                    SellIn = 0,
-                    Quality = 80
-                },
-                new()
-                {
-                    Name = ItemNames.SulfurasHandOfRagnaros,
-                    SellIn = -1,
-                    Quality = 80
-                },
-                new()
-                {
-                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
-                    SellIn = 15,
-                    Quality = 20
-                },
-                new()
-                {
-                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
-                    SellIn = 10,
-                    Quality = 49
-                },
-                new()
-                {
-                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
-                    SellIn = 5,
-                    Quality = 49
-                },
-                // this conjured item does not work properly yet
-                new()
-                {
-                    Name = ItemNames.ConjuredManaCake,
-                    SellIn = 3,
-                    Quality = 6
-                }
-            };
+            var content = File.ReadAllText("item_set.json");
+            var items = JsonSerializer.Deserialize<AppConfiguration>(content);
+            if (items == null)
+                throw new ArgumentException("Configuration file 'item_set.json' is broken or of wrong content");
             return items;
         }
     }
