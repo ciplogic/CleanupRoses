@@ -5,37 +5,10 @@ namespace Roses.App.Controllers
 {
     public class ItemQualityFinalAdjustmentUpdaters
     {
-        
         public static NamedBehaviorRunner<Item> Build()
-        {   
-            void AgedBrie(Item item)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
+        {
 
-            }
 
-            void BackstagePassesToATafkal80EtcConcert(Item item)
-            {
-                item.Quality = 0;
-
-            }
-
-            void SulfurasHandOfRagnaros(Item item)
-            {
-                
-            }
-
-            void DefaultAction(Item item)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality--;
-                }
-            }
-            
             NamedBehaviorRunner<Item> result = new(DefaultAction)
             {
                 {ItemNames.AgedBrie, AgedBrie},
@@ -44,5 +17,29 @@ namespace Roses.App.Controllers
             };
             return result;
         }
+
+        private static void AgedBrie(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality++;
+            }
+        }
+
+        private static void BackstagePassesToATafkal80EtcConcert(Item item) 
+            => item.Quality = 0;
+
+        private static void SulfurasHandOfRagnaros(Item item)
+        {
+        }
+
+        private static void DefaultAction(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                item.Quality--;
+            }
+        }
     }
+
 }

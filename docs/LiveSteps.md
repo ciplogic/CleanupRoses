@@ -81,3 +81,5 @@ This class will be committed first to see integration later. This class uses gen
 It is not mandatory
 
 9:30 Update code to use the split by name logic.
+
+9:35 Make methods static and outside of the main method so the setup looks less clutered.
