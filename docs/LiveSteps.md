@@ -9,3 +9,6 @@ Steps (with time stamp):
 7:40 create this file and try to compile the app. It builds but it targets .Net 2.1
 
 7:43 Cleanup files like .gitignore and make the repo pushable on just created GitHub project:
+
+7:50 Make tests work (no renaming, just it works)
+
