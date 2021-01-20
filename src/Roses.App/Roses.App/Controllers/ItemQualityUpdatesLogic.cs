@@ -1,9 +1,18 @@
+using System;
 using Roses.App.Entities;
+using Roses.App.Utilities;
 
 namespace Roses.App.Controllers
 {
     public static class DailyItemUpdatesLogic
     {
+        private static readonly NamedBehaviorRunner<Item> QualityUpdaters = SetupDefaultQualityUpdaters();
+
+        private static readonly NamedBehaviorRunner<Item> QualityFinalAdjustmentUpdaters =
+            SetupDefaultQualityFinalAdjustmentUpdaters();
+
+
+
         public static void UpdateDailyItemState(this Item item)
         {
             UpdateDailyQuality(item);
@@ -13,39 +22,51 @@ namespace Roses.App.Controllers
             UpdateDailyQualityFinalAdjustment(item);
         }
 
+        private static NamedBehaviorRunner<Item> SetupDefaultQualityFinalAdjustmentUpdaters()
+        {   
+            void AgedBrie(Item item)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality++;
+                }
+
+            }
+
+            void BackstagePassesToATafkal80EtcConcert(Item item)
+            {
+                item.Quality = 0;
+
+            }
+
+            void SulfurasHandOfRagnaros(Item item)
+            {
+                
+            }
+
+            void DefaultAction(Item item)
+            {
+                if (item.Quality > 0)
+                {
+                    item.Quality--;
+                }
+            }
+            
+            NamedBehaviorRunner<Item> result = new(DefaultAction)
+            {
+                {ItemNames.AgedBrie, AgedBrie},
+                {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
+                {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
+            };
+            return result;
+        }
         private static void UpdateDailyQualityFinalAdjustment(Item item)
         {
             if (item.SellIn >= 0)
             {
                 return;
             }
-
-            switch (item.Name)
-            {
-                case ItemNames.AgedBrie:
-                {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality++;
-                    }
-
-                    break;
-                }
-                case ItemNames.BackstagePassesToATafkal80EtcConcert:
-                    item.Quality = 0;
-                    break;
-                case ItemNames.SulfurasHandOfRagnaros:
-                    break;
-                default:
-                {
-                    if (item.Quality > 0)
-                    {
-                        item.Quality--;
-                    }
-
-                    break;
-                }
-            }
+            QualityFinalAdjustmentUpdaters.Invoke(item.Name, item);
         }
 
         private static void UpdateDailySellIn(Item item)
@@ -55,53 +76,57 @@ namespace Roses.App.Controllers
                 item.SellIn--;
             }
         }
-
-        private static void UpdateDailyQuality(Item item)
+        private static NamedBehaviorRunner<Item> SetupDefaultQualityUpdaters()
         {
-            switch (item.Name)
+            void DefaultAction(Item item)
             {
-                case ItemNames.AgedBrie:
+                if (item.Quality > 0)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality++;
-                    }
-
-                    break;
+                    item.Quality--;
                 }
-                case ItemNames.BackstagePassesToATafkal80EtcConcert:
+            } 
+            void AgedBrie(Item item)
+            {
+                if (item.Quality < 50)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality++;
-                        if (item.Quality < 50)
-                        {
-                            if (item.SellIn < 11)
-                            {
-                                item.Quality++;
-                            }
-
-                            if (item.SellIn < 6)
-                            {
-                                item.Quality++;
-                            }
-                        }
-                    }
-
-                    break;
-                }
-                case ItemNames.SulfurasHandOfRagnaros:
-                    break;
-                default:
-                {
-                    if (item.Quality > 0)
-                    {
-                        item.Quality--;
-                    }
-
-                    break;
+                    item.Quality++;
                 }
             }
+            void BackstagePassesToATafkal80EtcConcert(Item item)
+            {
+                if (item.Quality < 50)
+                {
+                    item.Quality++;
+                    if (item.Quality < 50)
+                    {
+                        if (item.SellIn < 11)
+                        {
+                            item.Quality++;
+                        }
+
+                        if (item.SellIn < 6)
+                        {
+                            item.Quality++;
+                        }
+                    }
+                }
+            }
+
+            void SulfurasHandOfRagnaros(Item item)
+            {
+            }
+
+            NamedBehaviorRunner<Item> result = new(DefaultAction)
+            {
+                {ItemNames.AgedBrie, AgedBrie},
+                {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
+                {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
+            };
+            return result;
+        }
+        private static void UpdateDailyQuality(Item item)
+        {
+            QualityUpdaters.Invoke(item.Name, item);
         }
     }
 }

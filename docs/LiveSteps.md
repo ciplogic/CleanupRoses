@@ -79,3 +79,5 @@ For example duplicate switch case cases and remove true/false if branches
 
 This class will be committed first to see integration later. This class uses generics just to say that I can use generics.
 It is not mandatory
+
+9:30 Update code to use the split by name logic.
