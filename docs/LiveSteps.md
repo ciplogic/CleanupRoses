@@ -43,3 +43,7 @@ new List<Item> { new() { Name = ...
 
 Extract larger methods to what they (appear to) do
 
+8:20 Add extra safety in Item: set C# nulability to on and make "Name" not-null and "init" only. 
+
+Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to add it to this repo as a reference)
+
