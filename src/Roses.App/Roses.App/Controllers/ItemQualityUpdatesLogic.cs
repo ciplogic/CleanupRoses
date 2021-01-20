@@ -6,10 +6,10 @@ namespace Roses.App.Controllers
 {
     public static class DailyItemUpdatesLogic
     {
-        private static readonly NamedBehaviorRunner<Item> QualityUpdaters = SetupDefaultQualityUpdaters();
+        private static readonly NamedBehaviorRunner<Item> QualityUpdaters = ItemQualityUpdaters.Build();
 
         private static readonly NamedBehaviorRunner<Item> QualityFinalAdjustmentUpdaters =
-            SetupDefaultQualityFinalAdjustmentUpdaters();
+            ItemQualityFinalAdjustmentUpdaters.Build();
 
 
 
@@ -22,44 +22,6 @@ namespace Roses.App.Controllers
             UpdateDailyQualityFinalAdjustment(item);
         }
 
-        private static NamedBehaviorRunner<Item> SetupDefaultQualityFinalAdjustmentUpdaters()
-        {   
-            void AgedBrie(Item item)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
-
-            }
-
-            void BackstagePassesToATafkal80EtcConcert(Item item)
-            {
-                item.Quality = 0;
-
-            }
-
-            void SulfurasHandOfRagnaros(Item item)
-            {
-                
-            }
-
-            void DefaultAction(Item item)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality--;
-                }
-            }
-            
-            NamedBehaviorRunner<Item> result = new(DefaultAction)
-            {
-                {ItemNames.AgedBrie, AgedBrie},
-                {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
-                {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
-            };
-            return result;
-        }
         private static void UpdateDailyQualityFinalAdjustment(Item item)
         {
             if (item.SellIn >= 0)
@@ -75,54 +37,6 @@ namespace Roses.App.Controllers
             {
                 item.SellIn--;
             }
-        }
-        private static NamedBehaviorRunner<Item> SetupDefaultQualityUpdaters()
-        {
-            void DefaultAction(Item item)
-            {
-                if (item.Quality > 0)
-                {
-                    item.Quality--;
-                }
-            } 
-            void AgedBrie(Item item)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                }
-            }
-            void BackstagePassesToATafkal80EtcConcert(Item item)
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality++;
-                    if (item.Quality < 50)
-                    {
-                        if (item.SellIn < 11)
-                        {
-                            item.Quality++;
-                        }
-
-                        if (item.SellIn < 6)
-                        {
-                            item.Quality++;
-                        }
-                    }
-                }
-            }
-
-            void SulfurasHandOfRagnaros(Item item)
-            {
-            }
-
-            NamedBehaviorRunner<Item> result = new(DefaultAction)
-            {
-                {ItemNames.AgedBrie, AgedBrie},
-                {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
-                {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
-            };
-            return result;
         }
         private static void UpdateDailyQuality(Item item)
         {
