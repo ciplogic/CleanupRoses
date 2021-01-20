@@ -135,5 +135,3 @@ is reverted and it is getting the original form with no Nullability check.
 2. Using generics for NamedBehaviorRunner: it is not necessary, just though I wanted to explicitly show that I know generics well. In fact, it may look better without generics and the call to "Invoke" will have 1 parameter less (which is nice).
 
 3. "Clean Code" and in my experience, commenting inside methods (and comments not getting updated) make the code less readable (in long term). Given this, I will not add comments in code excluding there is really a huge need for them (as when I write this, I didn't think yet if I should comment the APIs yet, but I may do it).
-
-4. 
