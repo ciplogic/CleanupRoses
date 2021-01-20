@@ -1,0 +1,55 @@
+using Roses.App.Controllers;
+using Xunit;
+using static Roses.App.Controllers.ItemQualityUpdatersValues;
+
+namespace Roses.App.Tests.Units
+{
+    public class ItemQualityUpdatersValuesTests
+    {
+        [Theory]
+        [InlineData(4, 3)]
+        [InlineData(-1, -1)]
+        public void DefaultQualityTests(int quality, int expectedQuality)
+        {
+            var actualValue = DefaultQuality(quality);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+        
+        [Theory]
+        [InlineData(3, 4)]
+        [InlineData(55, 55)]
+        public void AgedBrieQualityTests(int quality, int expectedQuality)
+        {
+            var actualValue = AgedBrieQuality(quality);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+        
+        [Theory]
+        [InlineData(3, 3)]
+        [InlineData(55, 55)]
+        [InlineData(-1, -1)]
+        public void SulfurasHandOfRagnarosQualityTests(int quality, int expectedQuality)
+        {
+            var actualValue = SulfurasHandOfRagnarosQuality(quality);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+        
+        
+        [Theory]
+        [InlineData(55, 3, 55)]
+        [InlineData(49, 3, 50)]
+        [InlineData(48, 3, 51)]
+        [InlineData(47, 3, 50)]
+        [InlineData(49, 8, 50)]
+        [InlineData(48, 8, 50)]
+        [InlineData(47, 8, 49)]
+        [InlineData(49, 28, 50)]
+        [InlineData(48, 28, 49)]
+        [InlineData(47, 28, 48)]
+        public void BackstagePassesToATafkal80EtcConcertQualityTests(int quality, int sellIn, int expectedQuality)
+        {
+            var actualValue = BackstagePassesToATafkal80EtcConcertQuality(quality, sellIn);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+    }
+}

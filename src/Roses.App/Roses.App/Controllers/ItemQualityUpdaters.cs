@@ -1,5 +1,6 @@
 using Roses.App.Entities;
 using Roses.App.Utilities;
+using static Roses.App.Controllers.ItemQualityUpdatersValues;
 
 namespace Roses.App.Controllers
 {
@@ -18,42 +19,22 @@ namespace Roses.App.Controllers
 
         private static void DefaultAction(Item item)
         {
-            if (item.Quality > 0)
-            {
-                item.Quality--;
-            }
+            item.Quality = DefaultQuality(item.Quality);
         }
 
         private static void AgedBrie(Item item)
         {
-            if (item.Quality < 50)
-            {
-                item.Quality++;
-            }
+            item.Quality = AgedBrieQuality(item.Quality);
         }
 
         private static void BackstagePassesToATafkal80EtcConcert(Item item)
         {
-            if (item.Quality >= 50)
-            {
-                return;
-            }
-            item.Quality++;
-            if (item.Quality >= 50) 
-                return;
-            switch (item.SellIn)
-            {
-                case < 6:
-                    item.Quality+=2;
-                    return;
-                case < 11:
-                    item.Quality++;
-                    break;
-            }
+            item.Quality = BackstagePassesToATafkal80EtcConcertQuality(item.Quality, item.SellIn);
         }
 
         private static void SulfurasHandOfRagnaros(Item item)
         {
+            item.Quality = SulfurasHandOfRagnarosQuality(item.Quality);
         }
 
     }
