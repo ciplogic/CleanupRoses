@@ -110,7 +110,7 @@ Because Conjured items are fixed now, the ApprovalTest of 30 days content file h
 
 11:30 Use JSON to setup the app, so no code changes need to be done if a different configuration is necessary.
 
-
+11:40 Make code Async/Await
 
 Few post review notes:
 

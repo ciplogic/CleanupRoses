@@ -11,13 +11,13 @@ namespace Roses.App.Tests
     public class ApprovalTest
     {
         [Fact]
-        public void ThirtyDays()
+        public async void ThirtyDays()
         {
             var fakeoutput = new StringBuilder();
             Console.SetOut(new StringWriter(fakeoutput));
             Console.SetIn(new StringReader("a\n"));
 
-            Program.Main();
+            await ProgramActions.RunAll();
             var output = fakeoutput.ToString();
 
             Approvals.Verify(output);
