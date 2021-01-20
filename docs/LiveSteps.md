@@ -12,3 +12,4 @@ Steps (with time stamp):
 
 7:50 Make tests work (no renaming, just it works)
 
+7:52 Split project in "app" and "tests"
