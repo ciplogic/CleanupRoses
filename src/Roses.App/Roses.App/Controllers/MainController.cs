@@ -3,11 +3,11 @@ using Roses.App.Entities;
 
 namespace Roses.App.Controllers
 {
-    public class GildedRose
+    public class MainController
     {
         private readonly List<Item> _items;
 
-        public GildedRose(List<Item> items)
+        public MainController(List<Item> items)
         {
             _items = items;
         }

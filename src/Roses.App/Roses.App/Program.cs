@@ -14,7 +14,7 @@ namespace Roses.App
 
             var items = BuildItemsDataSet();
 
-            var app = new GildedRose(items);
+            var app = new MainController(items);
 
 
             for (var i = 0; i < 31; i++)

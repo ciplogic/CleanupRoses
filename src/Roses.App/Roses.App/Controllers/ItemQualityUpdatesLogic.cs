@@ -4,14 +4,12 @@ using Roses.App.Utilities;
 
 namespace Roses.App.Controllers
 {
-    public static class DailyItemUpdatesLogic
+    public static class ItemDailyChangeStateLogic
     {
         private static readonly NamedBehaviorRunner<Item> QualityUpdaters = ItemQualityUpdaters.Build();
 
         private static readonly NamedBehaviorRunner<Item> QualityFinalAdjustmentUpdaters =
             ItemQualityFinalAdjustmentUpdaters.Build();
-
-
 
         public static void UpdateDailyItemState(this Item item)
         {

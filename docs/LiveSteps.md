@@ -86,6 +86,9 @@ It is not mandatory
 
 9:42 Update the latest clean code of quality updaters so it looks very concise and extensible.
 
+10:00 Update names and try to make the code to match the specification. The code in `ItemQualityUpdaters.BackstagePassesToATafkal80EtcConcert` has a lot of state that is passsed around and instead it should be aligned with spec. 
+WIP but committed just so the reviewer can see what is it about
+
 
 Few post review notes:
 
@@ -108,3 +111,5 @@ So, if the code is really not touchable, consider:
 is reverted and it is getting the original form with no Nullability check.
 
 2. Using generics for NamedBehaviorRunner: it is not necessary, just though I wanted to explicitly show that I know generics well. In fact, it may look better without generics and the call to "Invoke" will have 1 parameter less (which is nice).
+
+3. "Clean Code" and in my experience, commenting inside methods (and comments not getting updated) make the code less readable. Given this, I will not add comments in code excluding there is really a huge need for them (as when I write this, I didn't think yet if I should comment the APIs yet, but I may do it).

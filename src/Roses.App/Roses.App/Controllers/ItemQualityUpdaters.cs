@@ -39,18 +39,16 @@ namespace Roses.App.Controllers
                 return;
             }
             item.Quality++;
-            if (item.Quality >= 50)
-            {
+            if (item.Quality >= 50) 
                 return;
-            }
-            if (item.SellIn < 11)
+            switch (item.SellIn)
             {
-                item.Quality++;
-            }
-
-            if (item.SellIn < 6)
-            {
-                item.Quality++;
+                case < 6:
+                    item.Quality+=2;
+                    return;
+                case < 11:
+                    item.Quality++;
+                    break;
             }
         }
 
