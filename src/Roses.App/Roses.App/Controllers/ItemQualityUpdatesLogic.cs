@@ -11,22 +11,28 @@ namespace Roses.App.Controllers
         private static readonly NamedBehaviorRunner<Item> QualityFinalAdjustmentUpdaters =
             ItemQualityFinalAdjustmentUpdaters.Build();
 
-        public static void UpdateDailyItemState(this Item item)
+        public static void UpdateDailyItemState(this Item item, ItemCategoryClassifier itemCategoryClassifier)
         {
-            UpdateDailyQuality(item);
+            UpdateDailyQuality(item, itemCategoryClassifier);
 
             UpdateDailySellIn(item);
 
-            UpdateDailyQualityFinalAdjustment(item);
+            UpdateDailyQualityFinalAdjustment(item, itemCategoryClassifier);
         }
 
-        private static void UpdateDailyQualityFinalAdjustment(Item item)
+        private static void UpdateDailyQuality(Item item, ItemCategoryClassifier itemCategoryClassifier)
+        {
+            var itemCategory = itemCategoryClassifier.GetItemCategory(item.Name);
+            QualityUpdaters.Invoke(itemCategory, item);
+        }
+        private static void UpdateDailyQualityFinalAdjustment(Item item, ItemCategoryClassifier itemCategoryClassifier)
         {
             if (item.SellIn >= 0)
             {
                 return;
             }
-            QualityFinalAdjustmentUpdaters.Invoke(item.Name, item);
+            var itemCategory = itemCategoryClassifier.GetItemCategory(item.Name);
+            QualityFinalAdjustmentUpdaters.Invoke(itemCategory, item);
         }
 
         private static void UpdateDailySellIn(Item item)
@@ -35,10 +41,6 @@ namespace Roses.App.Controllers
             {
                 item.SellIn--;
             }
-        }
-        private static void UpdateDailyQuality(Item item)
-        {
-            QualityUpdaters.Invoke(item.Name, item);
         }
     }
 }

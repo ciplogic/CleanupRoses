@@ -106,6 +106,8 @@ Because Conjured items are fixed now, the ApprovalTest of 30 days content file h
 
 11:03 Rename `GildedRoseTest` to `IntegrationTests`.
 
+10:20 Reading carefully the specification (and as I prepare to wrap up) it canb e noticed that some items are named by category but they are hard-coded as value. For instance: "Backstage passes" or "Conjured" items would not be handled if the concert name is changed, so a mapping between the item and the cateogry is done. Updaters will be now mapped instead of magic constants: `ItemNames. ...`, now they will be moved to `ItemCategory. ...` . If this change would not be made, every time a new Conjdured item would appear, the code would have to be updated. Now it shouldn't.
+
 
 Few post review notes:
 

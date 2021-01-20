@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Roses.App.Controllers;
 using Roses.App.Entities;
+using Roses.App.Utilities;
 
 namespace Roses.App
 {
@@ -14,7 +15,9 @@ namespace Roses.App
 
             var items = BuildItemsDataSet();
 
-            var app = new MainController(items);
+            var categoryClassifier = new ItemCategoryClassifier();
+
+            var app = new MainController(items, categoryClassifier);
 
 
             for (var i = 0; i < 31; i++)

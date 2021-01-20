@@ -10,10 +10,10 @@ namespace Roses.App.Controllers
         {
             NamedBehaviorRunner<Item> result = new(DefaultAction)
             {
-                {ItemNames.AgedBrie, AgedBrie},
-                {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
-                {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
-                {ItemNames.ConjuredManaCake, Conjured},
+                {ItemCategory.AgedBrie, AgedBrie},
+                {ItemCategory.BackstagePasses, BackstagePassesToATafkal80EtcConcert},
+                {ItemCategory.Sulfuras, SulfurasHandOfRagnaros},
+                {ItemCategory.Conjured, Conjured},
             };
             return result;
         }
