@@ -91,6 +91,8 @@ WIP but committed just so the reviewer can see what is it about.
 
 10:05 The code inside `ItemQualityUpdaters` seems very fragile (meaning that making the cases a bit different, would make the code to break), so I will add unit tests around ItemQualityUpdaters and I will make the code more functional
 
+10:40 Added unit tests for both regular updaters and final adjustments code.
+
 
 Few post review notes:
 
