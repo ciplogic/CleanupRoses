@@ -1,6 +1,6 @@
 using Roses.App.Controllers;
 using Xunit;
-using static Roses.App.Controllers.ItemQualityUpdatersValues;
+using static Roses.App.Controllers.StateChanges.ItemQualityUpdatersValues;
 
 namespace Roses.App.Tests.Units
 {
@@ -49,6 +49,18 @@ namespace Roses.App.Tests.Units
         public void BackstagePassesToATafkal80EtcConcertQualityTests(int quality, int sellIn, int expectedQuality)
         {
             var actualValue = BackstagePassesToATafkal80EtcConcertQuality(quality, sellIn);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+        
+        
+        [Theory]
+        [InlineData(4, 2)]
+        [InlineData(1, -1)]
+        [InlineData(0, 0)]
+        [InlineData(-1, -1)]
+        public void ConjuredQualityTests(int quality, int expectedQuality)
+        {
+            var actualValue = ConjuredQuality(quality);
             Assert.Equal(expectedQuality, actualValue);
         }
     }

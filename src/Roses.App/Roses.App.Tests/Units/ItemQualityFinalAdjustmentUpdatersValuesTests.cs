@@ -1,6 +1,6 @@
 using Roses.App.Controllers;
 using Xunit;
-using static Roses.App.Controllers.ItemQualityFinalAdjustmentUpdatersValues;
+using static Roses.App.Controllers.StateChanges.ItemQualityFinalAdjustmentUpdatersValues;
 
 namespace Roses.App.Tests.Units
 {
@@ -46,6 +46,17 @@ namespace Roses.App.Tests.Units
         public void AgedBrieQualityTests(int quality, int expectedQuality)
         {
             var actualValue = AgedBrieQuality(quality);
+            Assert.Equal(expectedQuality, actualValue);
+        }
+        
+        [Theory]
+        [InlineData(4, 2)]
+        [InlineData(1, -1)]
+        [InlineData(0, 0)]
+        [InlineData(-1, -1)]
+        public void ConjuredQualityTests(int quality, int expectedQuality)
+        {
+            var actualValue = ConjuredQuality(quality);
             Assert.Equal(expectedQuality, actualValue);
         }
     }

@@ -1,6 +1,6 @@
 using Roses.App.Entities;
 using Roses.App.Utilities;
-using static Roses.App.Controllers.ItemQualityUpdatersValues;
+using static Roses.App.Controllers.StateChanges.ItemQualityUpdatersValues;
 
 namespace Roses.App.Controllers
 {
@@ -13,6 +13,7 @@ namespace Roses.App.Controllers
                 {ItemNames.AgedBrie, AgedBrie},
                 {ItemNames.BackstagePassesToATafkal80EtcConcert, BackstagePassesToATafkal80EtcConcert},
                 {ItemNames.SulfurasHandOfRagnaros, SulfurasHandOfRagnaros},
+                {ItemNames.ConjuredManaCake, Conjured}
             };
             return result;
         }
@@ -25,6 +26,11 @@ namespace Roses.App.Controllers
         private static void AgedBrie(Item item)
         {
             item.Quality = AgedBrieQuality(item.Quality);
+        }
+
+        private static void Conjured(Item item)
+        {
+            item.Quality = ConjuredQuality(item.Quality);
         }
 
         private static void BackstagePassesToATafkal80EtcConcert(Item item)

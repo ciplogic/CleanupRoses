@@ -95,6 +95,17 @@ WIP but committed just so the reviewer can see what is it about.
 
 10:42: Cleanup `ItemQualityUpdatersValues.BackstagePassesToATafkal80EtcConcertQuality` which was said at 10:05 as being "fragile" so it is more explicit.
 
+10:45 Small break
+
+10:50 Handle the broken "Conjored" part that is not working. As implementation is concerned the spec states:
+"	- "Conjured" items degrade in Quality twice as fast as normal items"
+
+so I took Default methods and I did double the decrease quality based on it.
+
+Because Conjured items are fixed now, the ApprovalTest of 30 days content file has to be updated. It has to be done and before making the change, I added local unit tests around method `CondjuredQuality` so it is less likely there is any regression with the update.
+
+
+
 
 Few post review notes:
 

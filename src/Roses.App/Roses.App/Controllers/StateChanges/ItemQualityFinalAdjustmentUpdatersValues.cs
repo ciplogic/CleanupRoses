@@ -1,4 +1,4 @@
-namespace Roses.App.Controllers
+namespace Roses.App.Controllers.StateChanges
 {
     public static class ItemQualityFinalAdjustmentUpdatersValues
     {
@@ -16,6 +16,12 @@ namespace Roses.App.Controllers
         public static int AgedBrieQuality(int itemQuality)
             => itemQuality < 50
                 ? itemQuality + 1
+                : itemQuality;
+        
+        
+        public static int ConjuredQuality(int itemQuality) =>
+            itemQuality > 0
+                ? itemQuality - 2
                 : itemQuality;
     }
 }

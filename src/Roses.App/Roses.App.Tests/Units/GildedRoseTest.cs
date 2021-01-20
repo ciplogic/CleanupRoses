@@ -3,7 +3,7 @@ using Roses.App.Controllers;
 using Roses.App.Entities;
 using Xunit;
 
-namespace Roses.App.Tests
+namespace Roses.App.Tests.Units
 {
     public class GildedRoseTest
     {
