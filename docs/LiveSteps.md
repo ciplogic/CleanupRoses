@@ -74,3 +74,8 @@ Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to ad
 8:58 Cleanup (still WIP) switch case with removing redundancies.
 
 For example duplicate switch case cases and remove true/false if branches
+
+9:15 work on a mini-class to extract named logic to be out of UpdatesLogic.
+
+This class will be committed first to see integration later. This class uses generics just to say that I can use generics.
+It is not mandatory
