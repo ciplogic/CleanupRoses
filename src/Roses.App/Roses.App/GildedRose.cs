@@ -20,11 +20,11 @@ namespace Roses.App
 
         private static void UpdateItemQuality(Item item)
         {
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (item.Name != ItemNames.AgedBrie && item.Name != ItemNames.BackstagePassesToATafkal80EtcConcert)
             {
                 if (item.Quality > 0)
                 {
-                    if (item.Name != "Sulfuras, Hand of Ragnaros")
+                    if (item.Name != ItemNames.SulfurasHandOfRagnaros)
                     {
                         item.Quality = item.Quality - 1;
                     }
@@ -36,7 +36,7 @@ namespace Roses.App
                 {
                     item.Quality = item.Quality + 1;
 
-                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                    if (item.Name == ItemNames.BackstagePassesToATafkal80EtcConcert)
                     {
                         if (item.SellIn < 11)
                         {
@@ -57,20 +57,20 @@ namespace Roses.App
                 }
             }
 
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            if (item.Name != ItemNames.SulfurasHandOfRagnaros)
             {
                 item.SellIn = item.SellIn - 1;
             }
 
             if (item.SellIn < 0)
             {
-                if (item.Name != "Aged Brie")
+                if (item.Name != ItemNames.AgedBrie)
                 {
-                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (item.Name != ItemNames.BackstagePassesToATafkal80EtcConcert)
                     {
                         if (item.Quality > 0)
                         {
-                            if (item.Name != "Sulfuras, Hand of Ragnaros")
+                            if (item.Name != ItemNames.SulfurasHandOfRagnaros)
                             {
                                 item.Quality = item.Quality - 1;
                             }

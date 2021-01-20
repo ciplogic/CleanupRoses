@@ -5,7 +5,8 @@ namespace Roses.App
 {
     public class Program
     {
-        public static void Main(string[] args)
+
+        public static void Main()
         {
             Console.WriteLine("OMGHAI!");
 
@@ -37,31 +38,61 @@ namespace Roses.App
         {
             var items = new List<Item>
             {
-                new() {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
-                new() {Name = "Aged Brie", SellIn = 2, Quality = 0},
-                new() {Name = "Elixir of the Mongoose", SellIn = 5, Quality = 7},
-                new() {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80},
-                new() {Name = "Sulfuras, Hand of Ragnaros", SellIn = -1, Quality = 80},
                 new()
                 {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.DexterityVest,
+                    SellIn = 10,
+                    Quality = 20
+                },
+                new()
+                {
+                    Name = ItemNames.AgedBrie,
+                    SellIn = 2,
+                    Quality = 0
+                },
+                new()
+                {
+                    Name = ItemNames.ElixirOfTheMongoose,
+                    SellIn = 5,
+                    Quality = 7
+                },
+                new()
+                {
+                    Name = ItemNames.SulfurasHandOfRagnaros,
+                    SellIn = 0,
+                    Quality = 80
+                },
+                new()
+                {
+                    Name = ItemNames.SulfurasHandOfRagnaros,
+                    SellIn = -1,
+                    Quality = 80
+                },
+                new()
+                {
+                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
                     SellIn = 15,
                     Quality = 20
                 },
                 new()
                 {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
                     SellIn = 10,
                     Quality = 49
                 },
                 new()
                 {
-                    Name = "Backstage passes to a TAFKAL80ETC concert",
+                    Name = ItemNames.BackstagePassesToATafkal80EtcConcert,
                     SellIn = 5,
                     Quality = 49
                 },
                 // this conjured item does not work properly yet
-                new() {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
+                new()
+                {
+                    Name = ItemNames.ConjuredManaCake,
+                    SellIn = 3,
+                    Quality = 6
+                }
             };
             return items;
         }

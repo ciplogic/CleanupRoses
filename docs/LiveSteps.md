@@ -47,3 +47,5 @@ Extract larger methods to what they (appear to) do
 
 Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to add it to this repo as a reference)
 
+8:25 Start extracting magic string constants. It would make it less likely to get typos. Especially GildedRose.cs is aggravating. Also Program.cs contains them.
+
