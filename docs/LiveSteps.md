@@ -39,3 +39,7 @@ new List<Item> { new() { Name = ...
 
 * use "var" everywhere. 
 
+8:10
+
+Extract larger methods to what they (appear to) do
+
