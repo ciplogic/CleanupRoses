@@ -31,25 +31,16 @@ namespace Roses.App.Controllers
 
                     break;
                 }
+                case ItemNames.BackstagePassesToATafkal80EtcConcert:
+                    item.Quality = 0;
+                    break;
+                case ItemNames.SulfurasHandOfRagnaros:
+                    break;
                 default:
                 {
-                    switch (item.Name)
+                    if (item.Quality > 0)
                     {
-                        case ItemNames.BackstagePassesToATafkal80EtcConcert:
-                            item.Quality = 0;
-                            break;
-                        default:
-                        {
-                            if (item.Quality > 0)
-                            {
-                                if (item.Name != ItemNames.SulfurasHandOfRagnaros)
-                                {
-                                    item.Quality--;
-                                }
-                            }
-
-                            break;
-                        }
+                        item.Quality--;
                     }
 
                     break;
@@ -70,42 +61,42 @@ namespace Roses.App.Controllers
             switch (item.Name)
             {
                 case ItemNames.AgedBrie:
+                {
+                    if (item.Quality < 50)
+                    {
+                        item.Quality++;
+                    }
+
+                    break;
+                }
                 case ItemNames.BackstagePassesToATafkal80EtcConcert:
                 {
                     if (item.Quality < 50)
                     {
-                        item.Quality = item.Quality + 1;
-
-                        if (item.Name == ItemNames.BackstagePassesToATafkal80EtcConcert)
+                        item.Quality++;
+                        if (item.Quality < 50)
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality++;
-                                }
+                                item.Quality++;
                             }
 
                             if (item.SellIn < 6)
                             {
-                                if (item.Quality < 50)
-                                {
-                                    item.Quality++;
-                                }
+                                item.Quality++;
                             }
                         }
                     }
 
                     break;
                 }
+                case ItemNames.SulfurasHandOfRagnaros:
+                    break;
                 default:
                 {
                     if (item.Quality > 0)
                     {
-                        if (item.Name != ItemNames.SulfurasHandOfRagnaros)
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
+                        item.Quality--;
                     }
 
                     break;

@@ -70,3 +70,7 @@ Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to ad
 8:52 Make smallest safe cleanups in large method:
 - X = X+1  -> X++; X = X-1 -> X--
 - invert ifs and getting out "switch" strings out of if comparisons.
+
+8:58 Cleanup (still WIP) switch case with removing redundancies.
+
+For example duplicate switch case cases and remove true/false if branches
