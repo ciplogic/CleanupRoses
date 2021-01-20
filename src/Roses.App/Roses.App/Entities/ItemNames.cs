@@ -1,4 +1,4 @@
-namespace Roses.App
+namespace Roses.App.Entities
 {
     public static class ItemNames
     {

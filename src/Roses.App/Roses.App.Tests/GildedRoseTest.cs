@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Roses.App.Controllers;
+using Roses.App.Entities;
 using Xunit;
 
 namespace Roses.App.Tests
@@ -13,7 +15,7 @@ namespace Roses.App.Tests
                 new() { Name = "foo", SellIn = 0, Quality = 0 }
             };
             var app = new GildedRose(items);
-            app.UpdateQuality();
+            app.UpdateDailyItemState();
             Assert.Equal("foo", items[0].Name);
         }
     }

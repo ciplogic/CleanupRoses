@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Roses.App.Controllers;
+using Roses.App.Entities;
 
 namespace Roses.App
 {
@@ -19,7 +21,7 @@ namespace Roses.App
             {
                 Console.WriteLine($"-------- day {i} --------");
                 DisplayItemsStatus(items);
-                app.UpdateQuality();
+                app.UpdateDailyItemState();
             }
         }
 

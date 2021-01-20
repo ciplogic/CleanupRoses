@@ -1,24 +1,10 @@
-﻿using System.Collections.Generic;
+using Roses.App.Entities;
 
-namespace Roses.App
+namespace Roses.App.Controllers
 {
-    public class GildedRose
+    public static class DailyItemUpdatesLogic
     {
-        private readonly List<Item> _items;
-        public GildedRose(List<Item> items)
-        {
-            _items = items;
-        }
-
-        public void UpdateQuality()
-        {
-            foreach (var item in _items)
-            {
-                UpdateItemQuality(item);
-            }
-        }
-
-        private static void UpdateItemQuality(Item item)
+        public static void UpdateDailyItemState(this Item item)
         {
             if (item.Name != ItemNames.AgedBrie && item.Name != ItemNames.BackstagePassesToATafkal80EtcConcert)
             {

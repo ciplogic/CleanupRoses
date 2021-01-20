@@ -2,7 +2,7 @@ Start time: 7:40 AM (from the time the directory is copied locally)
 
 Tools: Linux/.Net 5/Rider IDE (includes R# that would suggest some refactors)
 
-
+Note: as not stated, before every commit/push I do run tests (manually, using `dotnet test` in termninal)
 
 Steps (with time stamp):
 
@@ -49,3 +49,4 @@ Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to ad
 
 8:25 Start extracting magic string constants. It would make it less likely to get typos. Especially GildedRose.cs is aggravating. Also Program.cs contains them.
 
+8:43 Prepare the splitting/refactoring of updating item's state. So for this the structure is split logically so it makes more sense. This is WIP but still is a step in right direction.
