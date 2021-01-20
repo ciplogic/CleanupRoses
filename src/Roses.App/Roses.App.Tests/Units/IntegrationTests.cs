@@ -5,10 +5,10 @@ using Xunit;
 
 namespace Roses.App.Tests.Units
 {
-    public class GildedRoseTest
+    public class IntegrationTests
     {
         [Fact]
-        public void Foo()
+        public void MakesSureNameIsNotChangedAfterUpdatingStateTest()
         {
             var items = new List<Item>
             {

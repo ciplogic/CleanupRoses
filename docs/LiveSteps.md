@@ -104,7 +104,7 @@ so I took Default methods and I did double the decrease quality based on it.
 
 Because Conjured items are fixed now, the ApprovalTest of 30 days content file has to be updated. It has to be done and before making the change, I added local unit tests around method `CondjuredQuality` so it is less likely there is any regression with the update.
 
-
+11:03 Rename `GildedRoseTest` to `IntegrationTests`.
 
 
 Few post review notes:
@@ -131,3 +131,4 @@ is reverted and it is getting the original form with no Nullability check.
 
 3. "Clean Code" and in my experience, commenting inside methods (and comments not getting updated) make the code less readable (in long term). Given this, I will not add comments in code excluding there is really a huge need for them (as when I write this, I didn't think yet if I should comment the APIs yet, but I may do it).
 
+4. 
