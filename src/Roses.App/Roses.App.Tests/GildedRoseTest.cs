@@ -8,7 +8,10 @@ namespace Roses.App.Tests
         [Fact]
         public void Foo()
         {
-            var items = new List<Item> { new() { Name = "foo", SellIn = 0, Quality = 0 } };
+            var items = new List<Item>
+            {
+                new() { Name = "foo", SellIn = 0, Quality = 0 }
+            };
             var app = new GildedRose(items);
             app.UpdateQuality();
             Assert.Equal("foo", items[0].Name);

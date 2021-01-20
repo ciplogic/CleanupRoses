@@ -4,7 +4,7 @@ namespace Roses.App
 {
     public class GildedRose
     {
-        readonly List<Item> _items;
+        private readonly List<Item> _items;
         public GildedRose(List<Item> items)
         {
             _items = items;

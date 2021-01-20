@@ -16,7 +16,7 @@ namespace Roses.App
 
             for (var i = 0; i < 31; i++)
             {
-                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine($"-------- day {i} --------");
                 DisplayItemsStatus(items);
                 app.UpdateQuality();
             }
@@ -25,9 +25,9 @@ namespace Roses.App
         private static void DisplayItemsStatus(List<Item> items)
         {
             Console.WriteLine("name, sellIn, quality");
-            for (var j = 0; j < items.Count; j++)
+            foreach (var item in items)
             {
-                Console.WriteLine(items[j].Name + ", " + items[j].SellIn + ", " + items[j].Quality);
+                Console.WriteLine($"{item.Name}, {item.SellIn}, {item.Quality}");
             }
 
             Console.WriteLine("");
