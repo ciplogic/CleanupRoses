@@ -50,3 +50,19 @@ Add "RosesSpecs.txt" to docs (I had it open as a browser tab, but I forgot to ad
 8:25 Start extracting magic string constants. It would make it less likely to get typos. Especially GildedRose.cs is aggravating. Also Program.cs contains them.
 
 8:43 Prepare the splitting/refactoring of updating item's state. So for this the structure is split logically so it makes more sense. This is WIP but still is a step in right direction.
+
+8:48 Split the large method in 3:
+
+```
+   public static class DailyItemUpdatesLogic
+    {
+         public static void UpdateDailyItemState(this Item item)
+        {
+            UpdateDailyQuality(item);
+
+            UpdateDailySellIn(item);
+
+            UpdateDailyQualityFinalAdjustment(item);
+        }
+
+```
