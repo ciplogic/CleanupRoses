@@ -93,6 +93,8 @@ WIP but committed just so the reviewer can see what is it about.
 
 10:40 Added unit tests for both regular updaters and final adjustments code.
 
+10:42: Cleanup `ItemQualityUpdatersValues.BackstagePassesToATafkal80EtcConcertQuality` which was said at 10:05 as being "fragile" so it is more explicit.
+
 
 Few post review notes:
 
