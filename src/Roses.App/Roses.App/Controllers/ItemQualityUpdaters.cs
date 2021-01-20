@@ -34,21 +34,23 @@ namespace Roses.App.Controllers
 
         private static void BackstagePassesToATafkal80EtcConcert(Item item)
         {
-            if (item.Quality < 50)
+            if (item.Quality >= 50)
+            {
+                return;
+            }
+            item.Quality++;
+            if (item.Quality >= 50)
+            {
+                return;
+            }
+            if (item.SellIn < 11)
             {
                 item.Quality++;
-                if (item.Quality < 50)
-                {
-                    if (item.SellIn < 11)
-                    {
-                        item.Quality++;
-                    }
+            }
 
-                    if (item.SellIn < 6)
-                    {
-                        item.Quality++;
-                    }
-                }
+            if (item.SellIn < 6)
+            {
+                item.Quality++;
             }
         }
 

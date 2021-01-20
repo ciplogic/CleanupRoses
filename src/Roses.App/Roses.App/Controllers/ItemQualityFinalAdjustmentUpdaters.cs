@@ -3,12 +3,10 @@ using Roses.App.Utilities;
 
 namespace Roses.App.Controllers
 {
-    public class ItemQualityFinalAdjustmentUpdaters
+    public static class ItemQualityFinalAdjustmentUpdaters
     {
         public static NamedBehaviorRunner<Item> Build()
         {
-
-
             NamedBehaviorRunner<Item> result = new(DefaultAction)
             {
                 {ItemNames.AgedBrie, AgedBrie},

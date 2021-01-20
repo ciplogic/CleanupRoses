@@ -83,3 +83,28 @@ It is not mandatory
 9:30 Update code to use the split by name logic.
 
 9:35 Make methods static and outside of the main method so the setup looks less clutered.
+
+9:42 Update the latest clean code of quality updaters so it looks very concise and extensible.
+
+
+Few post review notes:
+
+1. Modifying the Items class even if not allowed to add extra safety
+(noticed and decided explicitly to not follow trough, but depending on the circumstance, I would revert it... when I write this, I am mixed, so I would talk with the goblin):
+
+In spec says to not touch the "Items" class, but the code will not compile with added "Nullability" safety of C# (that I enabled it).
+
+If the goblin is very evil, I will have to reduce the trivial change back and disable nulability (or set it as "warnings").
+
+So, if the code is really not touchable, consider:
+```
+   public class Item
+    {
+        public string Name { get; init; } = "";
+        public int SellIn { get; set; }
+        public int Quality { get; set; }
+    }
+```
+is reverted and it is getting the original form with no Nullability check.
+
+2. Using generics for NamedBehaviorRunner: it is not necessary, just though I wanted to explicitly show that I know generics well. In fact, it may look better without generics and the call to "Invoke" will have 1 parameter less (which is nice).
