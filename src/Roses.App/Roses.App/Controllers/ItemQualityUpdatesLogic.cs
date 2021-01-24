@@ -5,9 +5,9 @@ namespace Roses.App.Controllers
 {
     public static class ItemDailyChangeStateLogic
     {
-        private static readonly NamedBehaviorRunner<Item> QualityUpdaters = ItemQualityUpdaters.Build();
+        private static readonly NamedBehaviorRunner<ItemCategoryEnum, Item> QualityUpdaters = ItemQualityUpdaters.Build();
 
-        private static readonly NamedBehaviorRunner<Item> QualityFinalAdjustmentUpdaters =
+        private static readonly NamedBehaviorRunner<ItemCategoryEnum, Item> QualityFinalAdjustmentUpdaters =
             ItemQualityFinalAdjustmentUpdaters.Build();
 
         public static void UpdateDailyItemState(this Item item, ItemCategoryClassifier itemCategoryClassifier)
@@ -36,7 +36,7 @@ namespace Roses.App.Controllers
 
         private static void UpdateDailySellIn(Item item)
         {
-            if (item.Name != ItemNames.SulfurasHandOfRagnaros)
+            if (item.Name != ItemCategoryNames.Sulfuras)
             {
                 item.SellIn--;
             }

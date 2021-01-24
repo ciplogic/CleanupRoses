@@ -6,14 +6,14 @@ namespace Roses.App.Controllers
 {
     public static class ItemQualityFinalAdjustmentUpdaters
     {
-        public static NamedBehaviorRunner<Item> Build()
+        public static NamedBehaviorRunner<ItemCategoryEnum, Item> Build()
         {
-            NamedBehaviorRunner<Item> result = new(DefaultAction)
+            NamedBehaviorRunner<ItemCategoryEnum, Item> result = new(DefaultAction)
             {
-                {ItemCategory.AgedBrie, AgedBrie},
-                {ItemCategory.BackstagePasses, BackstagePassesToATafkal80EtcConcert},
-                {ItemCategory.Sulfuras, SulfurasHandOfRagnaros},
-                {ItemCategory.Conjured, Conjured},
+                {ItemCategoryEnum.AgedBrie, AgedBrie},
+                {ItemCategoryEnum.BackstagePasses, BackstagePasses},
+                {ItemCategoryEnum.Sulfuras, Sulfuras},
+                {ItemCategoryEnum.Conjured, Conjured},
             };
             return result;
         }
@@ -28,14 +28,14 @@ namespace Roses.App.Controllers
             item.Quality = AgedBrieQuality(item.Quality);
         }
 
-        private static void BackstagePassesToATafkal80EtcConcert(Item item)
+        private static void BackstagePasses(Item item)
         {
-            item.Quality = BackstagePassesToATafkal80EtcConcertQuality();
+            item.Quality = BackstagePassesQuality();
         }
 
-        private static void SulfurasHandOfRagnaros(Item item)
+        private static void Sulfuras(Item item)
         {
-            item.Quality = SulfurasHandOfRagnarosQuality(item.Quality);
+            item.Quality = SulfurasQuality(item.Quality);
         }
 
         private static void DefaultAction(Item item)

@@ -7,10 +7,10 @@ namespace Roses.App.Controllers.StateChanges
                 ? itemQuality - 1
                 : itemQuality;
 
-        public static int SulfurasHandOfRagnarosQuality(int itemQuality)
+        public static int SulfurasQuality(int itemQuality)
             => itemQuality;
 
-        public static int BackstagePassesToATafkal80EtcConcertQuality() 
+        public static int BackstagePassesQuality() 
             => 0;
 
         public static int AgedBrieQuality(int itemQuality)

@@ -17,9 +17,9 @@ namespace Roses.App.Tests.Units
           
         [Theory]
         [InlineData(0)]
-        public void BackstagePassesToATafkal80EtcConcertQualityTests(int expectedQuality)
+        public void BackstageQualityTests(int expectedQuality)
         {
-            var actualValue = BackstagePassesToATafkal80EtcConcertQuality();
+            var actualValue = BackstagePassesQuality();
             Assert.Equal(expectedQuality, actualValue);
         }
           
@@ -29,9 +29,9 @@ namespace Roses.App.Tests.Units
         [InlineData(15, 15)]
         [InlineData(49, 49)]
         [InlineData(50, 50)]
-        public void SulfurasHandOfRagnarosQualityTests(int quality, int expectedQuality)
+        public void SulfurasHandQualityTests(int quality, int expectedQuality)
         {
-            var actualValue = SulfurasHandOfRagnarosQuality(quality);
+            var actualValue = SulfurasQuality(quality);
             Assert.Equal(expectedQuality, actualValue);
         }
         

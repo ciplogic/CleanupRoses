@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using ApprovalTests;
 using ApprovalTests.Reporters;
 
@@ -11,7 +12,7 @@ namespace Roses.App.Tests
     public class ApprovalTest
     {
         [Fact]
-        public async void ThirtyDays()
+        public async Task ThirtyDays()
         {
             var fakeoutput = new StringBuilder();
             Console.SetOut(new StringWriter(fakeoutput));

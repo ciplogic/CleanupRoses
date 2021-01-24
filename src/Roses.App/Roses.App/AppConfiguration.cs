@@ -5,7 +5,7 @@ namespace Roses.App
 {
     public class AppConfiguration
     {
-        public List<Item> Items { get; set; }
+        public Item[] Items { get; set; } = new Item[0];
         public int DaysToUpdate { get; set; }
     }
 }

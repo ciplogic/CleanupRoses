@@ -27,12 +27,11 @@ namespace Roses.App.Tests.Units
         [InlineData(3, 3)]
         [InlineData(55, 55)]
         [InlineData(-1, -1)]
-        public void SulfurasHandOfRagnarosQualityTests(int quality, int expectedQuality)
+        public void SulfurasQualityTests(int quality, int expectedQuality)
         {
-            var actualValue = SulfurasHandOfRagnarosQuality(quality);
+            var actualValue = SulfurasQuality(quality);
             Assert.Equal(expectedQuality, actualValue);
         }
-        
         
         [Theory]
         [InlineData(55, 3, 55)]
@@ -45,12 +44,11 @@ namespace Roses.App.Tests.Units
         [InlineData(49, 28, 50)]
         [InlineData(48, 28, 49)]
         [InlineData(47, 28, 48)]
-        public void BackstagePassesToATafkal80EtcConcertQualityTests(int quality, int sellIn, int expectedQuality)
+        public void BackstagePassesQualityTests(int quality, int sellIn, int expectedQuality)
         {
-            var actualValue = BackstagePassesToATafkal80EtcConcertQuality(quality, sellIn);
+            var actualValue = BackstagePassesQuality(quality, sellIn);
             Assert.Equal(expectedQuality, actualValue);
         }
-        
         
         [Theory]
         [InlineData(4, 2)]

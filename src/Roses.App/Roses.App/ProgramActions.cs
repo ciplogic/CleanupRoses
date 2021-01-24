@@ -9,7 +9,7 @@ using Roses.App.Utilities;
 
 namespace Roses.App
 {
-    public class ProgramActions
+    public static class ProgramActions
     {
         public static async Task RunAll()
         {
@@ -29,7 +29,7 @@ namespace Roses.App
                 app.UpdateDailyItemState();
             }
         }
-        public static void DisplayItemsStatus(List<Item> items)
+        public static void DisplayItemsStatus(IEnumerable<Item> items)
         {
             Console.WriteLine("name, sellIn, quality");
             foreach (var item in items)
