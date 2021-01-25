@@ -13,7 +13,6 @@ namespace Roses.App
     {
         public static async Task RunAll()
         {
-            
             Console.WriteLine("OMGHAI!");
 
             var appConfiguration = await BuildItemsDataSet();
@@ -29,6 +28,7 @@ namespace Roses.App
                 app.UpdateDailyItemState();
             }
         }
+
         public static void DisplayItemsStatus(IEnumerable<Item> items)
         {
             Console.WriteLine("name, sellIn, quality");
