@@ -1,6 +1,6 @@
 namespace Roses.App.Entities
 {
-    static class ItemCategory
+    static class ItemCategoryNames
     {
         public const string AgedBrie = "Aged Brie";
         public const string Conjured = "Conjured";
